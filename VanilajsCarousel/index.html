@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	 <script src="https://kit.fontawesome.com/9dd2d32fa7.js" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Vanila Javascript Carousel</title>
+
+    <style type="text/css">
+    	*{
+    		box-sizing: border-box;
+    	}
+    	h1{
+    		text-align: center;
+    		font-family: sans-serif;
+    	}
+    	.arrow{
+    		position: absolute;
+    		top:0;
+    		height: 100%;
+    		width:15%;
+    		display: flex;
+    		justify-content: center;
+    		align-items: center;
+    		transition: 0.3s;
+    		cursor: pointer;
+    		z-index: 1000;
+    	}
+    	.arrow i{
+    		filter: invert(1);
+    	}
+    	.arrow:hover{
+             background:rgba(0,0,0,0.37);
+    	}
+    	.left{
+           left: 0;
+    	}
+    	.right{
+           right: 0;
+    	}
+    	.moveleft{
+    		transform: translateX(-100%);
+    	}
+    	.moveright{
+    		transform: translateX(100%);
+    	}
+    	.container-wrapper{
+    		margin-top: 50px;
+    		display: flex;
+    		justify-content: center;
+    	}
+    	.wrapper{
+    		position: relative;
+    		width:800px;
+    		height:500px;
+    		overflow: hidden;
+    		border: 2px solid #eee;
+    	}
+    	.img-container{
+    		display: flex;
+    		width: 100%;
+    		height: 100%;
+    	}
+    	img{
+    		width: 100%;
+    		height: 100%;
+    	}
+    </style>
+</head>
+<body>
+	<h1>Vanila javascript Carousel</h1>
+	<div class="container-wrapper">
+		<div class="wrapper">
+			<div class="arrow left"><i class="fas fa-arrow-left fa-2x"></i></div>
+             <div class="img-container">
+             	<img id="lastclone" src="img/carousel4.jpeg">
+		        <img class="img" src="img/carousel1.jpeg">
+		        <img class="img" src="img/carousel2.jpeg">	
+		        <img class="img" src="img/carousel3.jpeg">
+		        <img class="img" src="img/carousel4.jpeg">
+		        <img id="firstclone" src="img/carousel1.jpeg">
+               </div>
+            <div class="arrow right"><i class="fas fa-arrow-right fa-2x"></i></div>
+</div>
+</div>
+
+<!-- added js file -->
+   <script type="text/javascript">
+   	     const leftarrow = document.querySelector(".left");
+   	     const rightarrow = document.querySelector(".right");
+   	     const imagesimg = document.querySelectorAll("img");
+   	     var c = 100;
+   	     var image =document.querySelector(".img-container");
+   	     image.style.transform = "translateX(" + (-c)+ "%)";
+
+             leftarrow.addEventListener("click",function(){
+             	if(c<=0) return;
+             	image.style.transition = "transform 0.5s ease-in-out";
+                    c = c  - 100;
+               	image.style.transform = "translateX("+(-c)+ "%)"; 
+               });
+
+             rightarrow.addEventListener("click",function(){
+             	if (c >= (imagesimg.length * 100)-100) return;
+             	image.style.transition = "transform 0.5s ease-in-out";
+                 c = c  + 100;
+               	image.style.transform = "translateX("+(-c)+ "%)"; 
+               });
+
+            image.addEventListener("transitionend", () =>{
+            	if(imagesimg[c /100].id == "lastclone") {
+            		console.log(c)
+            		image.style.transition = "none";
+            		c = (imagesimg.length * 100) - 200;
+            		image.style.transform = "translateX(" + (-c) + "%)";
+            		  }
+
+            	if(imagesimg[c / 100].id =="firstclone") {
+            		image.style.transition = "none";
+            		c = (imagesimg.length * 100) - c;
+            		image.style.transform = "translateX(" + (-c) + "%)"; 
+            	}
+            })
+   	      </script>
+</body>
+</html>
