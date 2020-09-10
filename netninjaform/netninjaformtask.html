@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="netninjaformtask.css">
+  <title>Form Styling</title>
+</head>
+<body>
+   <header>
+      <img src="img/logo.png">
+    </header>
+    <!-- form contanier  -->
+     <div class="container">
+     	<form>
+     	<!-- gender -->
+      <div class="user-gender">
+        <p>You are a...</p>
+        <label class="custom-input">
+	     <input type="radio" name="gender" value="male">
+       <span class="custom-radio"></span><span class="color-red">Male</span>
+      	</label><br>
+         <label class="custom-input">
+	      <input type="radio" name="gender" value="female">
+        <span class="custom-radio"></span><span class="color-red">Female</span>
+     	   </label>
+       </div>
+
+       <div class="intrested-domain">
+          <p>Who is intrested in...</p>
+           <label class="custom-input">
+             <input type="checkbox" name="intrestdomain">
+               <span class="custom-box"></span><span class="color-red">Web Devlopment<span>
+           </label><br>
+           <label class="custom-input">
+              <input type="checkbox" name="intrestdomain">
+               <span class="custom-box"></span><span class="color-red">Photoshop</span>
+            </label><br>
+            <label class="custom-input">
+               <input type="checkbox" name="intrestdomain">
+                <span class="custom-box"></span><span class="color-red">Singing Pop Songs</span>  
+            </label>	
+          </div>
+
+          <div>
+          	<fieldset class="user-email-num">
+          	 <legend>Contact info</legend>
+         	    <input type="email" name="email" placeholder="Email" autocomplete="off" required>
+              <div class="tick"><img src="img/tick.png"></div><br>
+              <input type="number" name="number" placeholder="Number" autocomplete="off" required>
+              <div class="tick"><img src="img/tick.png"></div>
+            </fieldset>
+           </div>
+
+           <div class="userconnectprefer">
+            <p>How would you like to be connected?</p>
+            <select>
+              <option>By Email</option>
+              <option>By Phone</option>
+            </select><br><br>
+           	<button type="submit">Become a Ninja</button>
+           </div>
+              </form>
+       </div>
+</body>
+</html>
